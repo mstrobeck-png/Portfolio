@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Lorenz Attractor Start</title>
+	<style>canvas{border: 1px solid black;}</style>
+	<script>
+	
+	let ctx;
+    let x = 0.1, y = 0, z = 0;
+    //refer to lorenz-attractor analysis second
+    let a = 10, b = 28, c = 8/3;
+    let scale = 8;
+    let counter = 1;
+
+	const canvasWidth = 800, canvasHeight = 600;
+	window.onload = init;
+	function init(){
+	  ctx = canvas.getContext("2d");
+	  canvas.width = canvasWidth;
+	  canvas.height = canvasHeight;
+	  ctx.fillRect(0,0,canvasWidth,canvasHeight);
+      loop();
+    }
+
+    function loop() {
+        requestAnimationFrame(loop);
+
+        let dt = .01; //made nums not NaN
+        let dx = (a * (y-x)) * dt;
+        let dy = (x * (b-z) - y) * dt;
+        let dz = (x * y - c * z) * dt;
+
+        x = x + dx;
+        y = y + dy;
+        z = z + dz;
+
+        //console.log(x,y,z);
+        ctx.save();
+        //translate,rotate,scale - three types
+        ctx.translate(canvasWidth/2,canvasHeight/2);
+        //ctx.fillStyle = "white";
+        let value = 255 - (z * scale);
+        ctx.fillStyle = `hsl(${counter},100%,50%)`;
+        ctx.fillRect(x*scale,y*scale,2,2);
+        ctx.restore();
+        counter++;
+    }
+	</script>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+</body>
+</html>
