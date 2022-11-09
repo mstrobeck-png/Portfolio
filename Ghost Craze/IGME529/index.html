@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="sheet.css">
+<title>IGME 529 Card Generator</title>
+<script src="javascript.js"></script>
+
+</head>
+<body>
+
+    <div class="into">
+        <div>
+            <h1> Ghost Craze </h1>
+            <p>
+               Each card represents a different icon you can locate on the board. Simply click on the card that matches the board icon and there awaits your reward or loss. 
+            </p> 
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            <img src="./images/gain.png" alt="gain" style="height: 200px" onclick="gainClicked()">
+        </div>
+        <div>
+            <img src="./images/loss.png" alt="loss" style="height: 200px" onclick="lossClicked()">
+        </div>
+        <div>
+            <img src="./images/newLoc.png" alt="location" style="height: 200px" onclick="locClicked()">
+        </div>
+    </div>
+
+    <div class="container2">
+         <div>
+            <img src="./images/affectAll.png" alt="affectAll" style="height: 200px" onclick="allClicked()">
+        </div>
+        <div>
+            <img src="./images/surprise.png" alt="surprise" style="height: 200px" onclick="surpriseClicked()">
+        </div>
+    </div>
+      
+    <div class="answerDisplay">
+        <div id="answer"></div>
+    </div>
+   
+        
+</body>
+</html>
